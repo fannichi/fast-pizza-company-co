@@ -4,7 +4,7 @@ import User from '../features/user/User';
 
 function Header() {
   return (
-    <header className="bg-yellow-500 uppercase">
+    <header className="flex items-center justify-between border-b border-stone-400 bg-yellow-500 px-4 py-3 uppercase sm:px-6">
       <Link to="/" className="tracking-[.25rem]">
         Fast pizza company Co.
       </Link>
