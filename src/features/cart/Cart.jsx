@@ -3,6 +3,7 @@ import Button from '../../UI/Button';
 import LinkButton from '../../UI/LinkButton';
 import CartItem from './CartItem';
 import { clearCart, getCart } from './cartSlice';
+import EmptyCart from './EmptyCart';
 
 function Cart() {
   const username = useSelector((store) => store.user.username);
@@ -13,18 +14,7 @@ function Cart() {
       <LinkButton to="/menu"> &larr; Back to menu</LinkButton>
 
       {cart.length === 0 ? (
-        <>
-          <>
-            <div className="mt-20 flex flex-col items-center">
-              <p className="rounded-lg bg-stone-100 p-4 text-center text-lg font-medium text-stone-500">
-                {username}, your cart is empty. Start by adding pizzas 🍕
-              </p>
-              <Button to="/menu" type="small" className="mt-4">
-                Take a look
-              </Button>
-            </div>
-          </>
-        </>
+        <EmptyCart />
       ) : (
         <>
           <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
