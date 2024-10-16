@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import { useFetcher } from 'react-router-dom';
 import Button from '../../UI/Button';
 import { updateOrder } from '../../services/apiRestaurant';

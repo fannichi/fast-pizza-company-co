@@ -33,7 +33,7 @@ function Order() {
               Priority
             </span>
           )}
-          <span className="rounded-full bg-yellow-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-yellow-50">
+          <span className="bg-theme-color theme-color-50 rounded-full px-3 py-1 text-sm font-semibold uppercase tracking-wide">
             {status} order
           </span>
         </div>
@@ -83,7 +83,7 @@ function Order() {
     </div>
   );
 }
-
+/*eslint-disable*/
 export async function loader({ params }) {
   const order = await getOrder(params.orderId);
   return order;

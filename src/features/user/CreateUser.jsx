@@ -27,7 +27,7 @@ function CreateUser() {
         placeholder="Your full name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="mb-8 w-72 rounded-full border border-stone-200 px-4 py-2 text-sm text-stone-400 transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50 md:px-6 md:py-3"
+        className="focus:ring-theme-color mb-8 w-72 rounded-full border border-stone-200 px-4 py-2 text-sm text-stone-400 transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-opacity-50 md:px-6 md:py-3"
       />
 
       {username !== '' && (

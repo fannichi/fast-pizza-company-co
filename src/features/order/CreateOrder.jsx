@@ -1,12 +1,12 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
-import Button from '../../UI/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import EmptyCart from '../cart/EmptyCart';
-import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
 import store from '../../store';
+import Button from '../../UI/Button';
 import { formatCurrency } from '../../utils/helpers';
-import { useState } from 'react';
+import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
+import EmptyCart from '../cart/EmptyCart';
 import { fetchAddress } from '../user/userSlice';
 
 // https://uibakery.io/regex-library/phone-number
@@ -14,7 +14,7 @@ const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(str);
 
 const inputStyle =
-  'rounded-full border border-stone-200 px-4 py-2 text-sm text-stone-400 transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50 md:px-6 md:py-3';
+  'rounded-full border border-stone-200 px-4 py-2 text-sm text-stone-400 transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-theme-color focus:ring-opacity-50 md:px-6 md:py-3';
 
 function CreateOrder() {
   const {
@@ -100,7 +100,7 @@ function CreateOrder() {
             type="checkbox"
             name="priority"
             id="priority"
-            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50 focus:ring-offset-2"
+            className="accent-theme-color focus:ring-theme-color h-6 w-6 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2"
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />

@@ -7,6 +7,7 @@ import Menu, { loader as menuLoader } from './features/menu/Menu';
 import CreateOrder, { action as createOrderAction } from './features/order/CreateOrder';
 import Order, { loader as orderLoader } from './features/order/Order';
 import { action as updateOrderAction } from './features/order/UpdateOrder';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   const router = createBrowserRouter([
@@ -20,8 +21,8 @@ function App() {
         },
         {
           path: '/menu',
-          loader: menuLoader,
           element: <Menu />,
+          loader: menuLoader,
           errorElement: <Error />,
         },
         {
@@ -30,20 +31,24 @@ function App() {
         },
         {
           path: '/order/new',
-          action: createOrderAction,
           element: <CreateOrder />,
+          action: createOrderAction,
         },
         {
           path: '/order/:orderId',
           loader: orderLoader,
           action: updateOrderAction,
-          errorElement: <Error />,
           element: <Order />,
+          errorElement: <Error />,
         },
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider>
+      <RouterProvider router={router} />;
+    </ThemeProvider>
+  );
 }
 
 export default App;

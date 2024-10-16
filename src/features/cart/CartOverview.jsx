@@ -12,7 +12,7 @@ function CartOverview() {
       {totalCartPrice === 0 || totalCartQuantity === 0 ? (
         <p className="space-x-4 font-semibold text-stone-300 sm:space-x-6">
           Empty cart, start adding delicious pizzas from the{' '}
-          <Link className="text-yellow-400 hover:text-yellow-300" to="/menu">
+          <Link className="text-theme-color hover:theme-color" to="/menu">
             menu
           </Link>
         </p>
@@ -24,7 +24,7 @@ function CartOverview() {
               {Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalCartPrice)}
             </span>
           </p>
-          <Link to="/cart" className="text-yellow-400 hover:text-yellow-300">
+          <Link to="/cart" className="text-theme-color hover:theme-color">
             Open cart &rarr;
           </Link>
         </>

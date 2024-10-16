@@ -9,6 +9,9 @@ export default {
       height: {
         screen: '100dvh',
       },
+      colors: {
+        'theme-color': 'var(--theme-color)',
+      },
     },
   },
   plugins: [],
