@@ -8,7 +8,7 @@ import UpdateItemQuantity from '../cart/UpdateItemQuantity';
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const dispatch = useDispatch();
-  const getQuantityById = useSelector(getItemQuantityById(id));
+  const getQuantityById = useSelector((store) => getItemQuantityById(id)(store));
 
   function handleAddToCart() {
     const newItem = {
