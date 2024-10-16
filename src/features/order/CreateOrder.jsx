@@ -1,6 +1,7 @@
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
 import Button from '../../UI/Button';
+import { useSelector } from 'react-redux';
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -34,6 +35,7 @@ const inputStyle =
   'rounded-full border border-stone-200 px-4 py-2 text-sm text-stone-400 transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50 md:px-6 md:py-3';
 
 function CreateOrder() {
+  const username = useSelector((store) => store.user.username);
   // const [withPriority, setWithPriority] = useState(false);
   const navigation = useNavigation();
   // this happens when there is no submission  due to errors
@@ -49,7 +51,13 @@ function CreateOrder() {
       <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
-          <input type="text" name="customer" required className={`${inputStyle} grow`} />
+          <input
+            type="text"
+            defaultValue={username}
+            name="customer"
+            required
+            className={`${inputStyle} grow`}
+          />
         </div>
 
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
